@@ -12,16 +12,16 @@ import { Rehydrated } from 'aws-appsync-react';
 import { AUTH_TYPE } from "aws-appsync/lib/link/auth-link";
 import { graphql, ApolloProvider, compose } from 'react-apollo';
 import * as AWS from 'aws-sdk';
-import AppSync from './AppSync.js';
+import AppSync from './aws-exports.js';
 import AllDestinationsQuery from './Queries/AllDestinationsQuery';
 import NewDestinationMutation from './Queries/NewDestinationMutation';
 
 const client = new AWSAppSyncClient({
-  url: AppSync.graphqlEndpoint,
-  region: AppSync.region,
+  url: AppSync.aws_appsync_graphqlEndpoint,
+  region: AppSync.aws_appsync_region,
   auth: {
       type: AUTH_TYPE.API_KEY,
-      apiKey: AppSync.apiKey,
+      apiKey: AppSync.aws_appsync_apiKey,
 
       // type: AUTH_TYPE.AWS_IAM,
       // Note - Testing purposes only

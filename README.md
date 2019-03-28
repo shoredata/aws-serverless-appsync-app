@@ -1,5 +1,9 @@
 # Serverless Web Application with AppSync Workshop
 
+<a href="https://www.youtube.com/watch?v=sQN28Jo-nak" target="_blank"><img src="images/twitch.png" align="center" width="500" alt="Serverless Bytes | Building a Serverless GraphQL App"></a>
+<br />
+Follow along this workshop on <a href="https://www.youtube.com/watch?v=sQN28Jo-nak" target="_blank">YouTube</a>.
+
 This workshop shows you how easy it is to build a data driven web applications all with no servers. You will build a serverless web application that lets users search for popular tourist destinations. The application will provide real-time weather analysis of the indexed destinations.
 
 You will host your web application's static assets on Amazon S3 and use S3 to deliver the web application to your users. The application will integrate with AWS AppSync to provide real-time data from multiple data sources via GraphQL technology. Destination data will be stored in Amazon DynamoDB and AWS Lambda will query for real time weather information. AppSync will make it easy to access this data and provide the exact information our application needs.
@@ -40,7 +44,7 @@ This workshop can be deployed in any AWS region that supports the following serv
 - Amazon S3
 - Amazon DynamoDB
 
-You can refer to the [region table](https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/) in the AWS documentation to see which regions have the supported services. Among the supported regions you can choose are: **N. Virginia, Ohio, Oregon**.
+You can refer to the [region table](https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/) in the AWS documentation to see which regions have the supported services. Among the currently supported regions you can choose are: **N. Virginia, Ohio, Oregon, Ireland, Frankfurt, Singapore, Tokyo, Sydney, and Mumbai**.
 
 Once you've chosen a region, you should deploy all of the resources for this workshop there. Make sure you select your region from the dropdown in the upper right corner of the AWS Console before getting started.
 
@@ -96,9 +100,10 @@ Right click your function and select **Deploy**
 
 ### Step 3: Create your AppSync API backend
 
-Open the AWS AppSync Console and click  **Create API**
-Enter a name for your API. Choose *Custom schema* and click **Create**
-On the next screen, download your *AppSync.js* config file. Choose the **Web** tab and click **Download**
+Open the AWS AppSync Console and click  **Create API**. Choose **Build from Scratch** and click **Start**.
+Enter a name for your API and click **Create**
+
+On the next screen, scroll down to the "Integrate your app" section and download your *aws-exports.js* config file. Choose the **Javascript** tab and click **Download Config**. You will save this file into your ./src directory later.
 
 ![Upload screenshot](images/Step3.1.png)
 
@@ -213,7 +218,7 @@ Your configuration should look similar to this:
 
 ### Step 4: Implement your ReactJS web front end
 Switch back to the AWS Cloud9 IDE.
-Upload the *AppSync.js* file you downloaded in the previous step to your Cloud9 workspace
+Upload the *aws-exports.js* file you downloaded in the previous step to your Cloud9 workspace
 
 Create your ReactJS project (this step will take a few minutes):
 
@@ -244,7 +249,7 @@ Under the */my-destination-app/src* folder create a **Components** folder and a 
 Drag and drop files you downloaded into *src* as follows:
 
     App.js
-    AppSync.js
+    aws-exports.js
     Components
         AddDestination.jsx
         AllDestinations.jsx
